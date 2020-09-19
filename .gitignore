@@ -1,6 +1,9 @@
 # Prerequisites
 *.d
 
+.vscode/*
+build/*
+
 # Compiled Object files
 *.slo
 *.lo
@@ -15,6 +18,7 @@
 *.so
 *.dylib
 *.dll
+!libclass_loader.so
 
 # Fortran module files
 *.mod

@@ -1,0 +1,15 @@
+#ifndef _H_CONST_PARAM_H
+#define _H_CONST_PARAM_H
+
+#ifndef LABEL_CONTENT_MAX_LENGTH
+#define LABEL_CONTENT_MAX_LENGTH 1*1024*1024
+#endif
+
+#ifndef SENSOR_CONTENT_MAX_LENGTH
+#define SENSOR_CONTENT_MAX_LENGTH 10*1024*1024
+#endif
+
+#define _DEBUG 1
+
+
+#endif

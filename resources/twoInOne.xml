@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<episode_fs>
+    <labelPlugins>
+        <plugin>
+            <className>micros_label_gen::TimeLabelGeneratorPlugin</className>            <!--插件类名的全称，包括namespace-->
+            <name>timeLabel</name>
+            <path>../lib/libtest.so</path>
+            <length>8</length>
+            <!--<Type>1</Type> -->            <!--Type为enum类型{int=1,long,char,unsigned int, unsigned long, unsigned char} -->
+        </plugin>
+        <plugin>
+            <className>micros_label_gen::ColorLabelGeneratorPlugin</className>
+            <name>colorLabel</name>
+            <path>../lib/libtest.so</path>
+            <length>3</length>
+            <!--<Type>1</Type> -->            <!--Type为enum类型{int=1,long,char,unsigned int, unsigned long, unsigned char} -->
+        </plugin>
+    </labelPlugins>
+    <sensorPlugins>
+        <plugin>
+            <className>micros_sensor_plugin::BSensorPlugin</className>
+            <name>bSensorPlugin</name>
+            <path>../lib/libbsensorplugin.so</path>            <!--.so plugin path-->
+            <maxContentLength>1024*1024</maxContentLength>
+            <params>
+                <param name="deviceName" value="/dev/video0"></param>
+                <param name="pixelFormat" value="PIXEL_FORMAT_YUYV"></param>
+                <param name="imageWidth" value="640"></param>
+                <param name="imageHeight" value="480"></param>
+                <param name="sampleRate" value = "0.001"></param>
+            </params>
+        </plugin>
+    </sensorPlugins>
+    <sensorBindLabels>
+        <sensorBindLabel>
+            <sensorName>bSensorPlugin</sensorName>
+            <labelNames>
+                <labelName>timeLabel</labelName>
+                <labelName>colorLabel</labelName>
+            </labelNames>
+        </sensorBindLabel>
+    </sensorBindLabels>
+</episode_fs>

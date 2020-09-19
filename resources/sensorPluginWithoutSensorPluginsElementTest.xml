@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<episode_fs>
+    <sensorPlugins>
+        <plugin>
+            <className>micros_sensor_plugin::BSensorPlugin</className>
+            <name>bSensorPlugin</name>
+            <path>../lib/libbsensorplugin.so</path>            <!--.so plugin path-->
+            <maxContentLength>1024*1024</maxContentLength>
+            <params>
+                <param name="deviceName" value="/dev/video0"></param>
+                <param name="pixelFormat" value="PIXEL_FORMAT_YUYV"></param>
+                <param name="imageWidth" value="640"></param>
+                <param name="imageHeight" value="480"></param>
+                <param name="sampleRate" value = "0.001"></param>
+            </params>
+        </plugin>
+        <plugin>
+            <className>micros_sensor_plugin::CSensorPlugin</className>
+            <name>cSensorPlugin</name>
+            <path>../lib/libcsensorplugin.so</path>            <!--.so plugin path-->
+            <maxContentLength>1024</maxContentLength>
+            <params>
+                <param name="deviceName" value="/dev/video0"></param>
+                <param name="pixelFormat" value="PIXEL_FORMAT_YUYV"></param>
+                <param name="imageWidth" value="640"></param>
+                <param name="imageHeight" value="480"></param>
+                <param name="sampleRate" value = "0.001"></param>
+            </params>
+        </plugin>
+    </sensorPlugins>
+</episode_fs>

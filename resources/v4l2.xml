@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<episode_fs>
+    <labelPlugins>
+        <plugin>
+            <className>micros_label_gen::TimeLabelGeneratorPlugin</className>            <!--插件类名的全称，包括namespace-->
+            <name>timeLabel</name>
+            <path>/opt/micros/1.0.1/lib/plugins/libtime_color_labelGeneratorPlugin.0.1.0.so</path>
+            <length>8</length>
+            <!--<Type>1</Type> -->            <!--Type为enum类型{int=1,long,char,unsigned int, unsigned long, unsigned char} -->
+        </plugin>
+        <plugin>
+            <className>micros_label_gen::ColorLabelGeneratorPlugin</className>
+            <name>colorLabel</name>
+            <path>/opt/micros/1.0.1/lib/plugins/libtime_color_labelGeneratorPlugin.0.1.0.so</path>
+            <length>3</length>
+            <!--<Type>1</Type> -->            <!--Type为enum类型{int=1,long,char,unsigned int, unsigned long, unsigned char} -->
+        </plugin>
+    </labelPlugins>
+    <sensorPlugins>
+        <plugin>
+            <className>micros_sensor_plugin::V4L2ImageSensorPlugin</className>
+            <name>v4l2SensorPlugin</name>
+            <path>/opt/micros/1.0.1/lib/plugins/libv4l2_image_sensor_plugin.0.1.0.so</path>            <!--.so plugin path-->
+            <maxContentLength>1024</maxContentLength>
+            <params>
+                <param name="deviceName" value="/dev/video4"></param>
+                <param name="pixelFormat" value="PIXEL_FORMAT_YUYV"></param>
+                <param name="width" value="640"></param>
+                <param name="height" value="480"></param>
+                <param name="framerate" value = "20"></param>
+            </params>
+        </plugin>
+    </sensorPlugins>
+    <sensorBindLabels>
+        <sensorBindLabel>
+            <sensorName>v4l2SensorPlugin</sensorName>
+            <labelNames>
+                <labelName>timeLabel</labelName>
+                <labelName>colorLabel</labelName>
+            </labelNames>
+        </sensorBindLabel>
+    </sensorBindLabels>
+</episode_fs>
